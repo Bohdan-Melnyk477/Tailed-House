@@ -1,11 +1,11 @@
 {
-  "name": "Paw_Hut",
+  "name": "Tailed-House",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/Paw_Hut/",
+    "build": "vite build --base=/Tailed-House/",
     "preview": "vite preview"
   },
   "devDependencies": {
