@@ -5,6 +5,7 @@
   |============================
 */
 /* Common styles */
+@import url('./base.css');
 @import url('./reset.css');
 @import url('./animations.css');
 
