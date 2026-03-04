@@ -1,11 +1,11 @@
 {
-  "name": "Paw_Hut",
+  "name": "Tailed-House",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/Paw_Hut/",
+    "build": "vite build --base=/Tailed-House/",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -17,6 +17,10 @@
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "accordion-js": "^3.4.1",
+    "axios": "^1.13.6",
+    "node": "^25.8.0",
+    "swiper": "^12.1.2",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
   }
