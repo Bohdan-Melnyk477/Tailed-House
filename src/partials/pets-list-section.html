@@ -1,0 +1,43 @@
+<section class="pets" id="pets">
+  <div class="pets__container">
+    <h2 class="pets__title">Наші хвостики</h2>
+    <p class="pets__subtitle">Вони дуже чекають на знайомство з вами</p>
+
+    <div
+      class="pets__filters"
+      id="categoryFilters"
+      aria-label="Фільтри категорій"
+    ></div>
+
+    <ul class="pets__list" id="petsList" aria-label="Список тваринок"></ul>
+
+    <div class="pets__footer">
+      <button class="pets__more-btn" id="loadMoreBtn" type="button">
+        Показати більше
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="pets-modal" id="petModal" aria-hidden="true">
+    <div class="pets-modal__backdrop" data-modal-close></div>
+
+    <div
+      class="pets-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="petModalTitle"
+    >
+      <button
+        class="pets-modal__close"
+        type="button"
+        aria-label="Закрити"
+        data-modal-close
+      >
+        ×
+      </button>
+
+      <div class="pets-modal__content" id="petModalContent"></div>
+    </div>
+  </div>
+</section>
