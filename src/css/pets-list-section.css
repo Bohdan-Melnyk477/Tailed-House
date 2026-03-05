@@ -1,0 +1,338 @@
+.pets {
+  background: #fbf8f2;
+  padding: 56px 0 64px;
+  color: #1d1d1d;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+.pets__container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.pets__title {
+  text-align: center;
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  font-weight: 800;
+}
+
+.pets__subtitle {
+  text-align: center;
+  margin: 0 0 22px;
+  color: #6a665f;
+  font-size: 14px;
+}
+
+.pets__filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 26px;
+}
+
+.pets__filter-btn {
+  border: 1px solid #c8b9a7;
+  background: transparent;
+  color: #3b342c;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.08s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.pets__filter-btn:hover {
+  background: #efe6db;
+}
+
+.pets__filter-btn:focus-visible {
+  outline: 3px solid rgba(111, 78, 55, 0.25);
+  outline-offset: 2px;
+}
+
+.pets__filter-btn.is-active {
+  background: #efe6db;
+  border-color: #a89076;
+  font-weight: 700;
+}
+
+.pets__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 1024px) {
+  .pets__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .pets__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 639px) {
+  .pets__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.pet-card {
+  background: #f5f0e7;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e0d6c9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-card__img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #e9e2d7;
+  overflow: hidden;
+}
+
+.pet-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pet-card__body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.pet-card__species {
+  font-size: 11px;
+  color: #6a665f;
+  margin: 0;
+}
+
+.pet-card__name {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 800;
+  color: #1b1b1b;
+}
+
+.pet-card__category {
+  font-size: 12px;
+  color: #6a665f;
+  margin: 0;
+}
+
+.pet-card__meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #3b342c;
+}
+
+.pet-card__tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  font-size: 11px;
+  background: #e6dccf;
+  border: 1px solid #d2c3b2;
+  color: #3b342c;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.pet-card__desc {
+  margin: 0;
+  font-size: 12px;
+  color: #3b342c;
+  line-height: 1.35;
+  flex: 1;
+}
+
+.pet-card__btn {
+  margin-top: 8px;
+  border: 1px solid #a89076;
+  background: transparent;
+  color: #3b342c;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.08s ease;
+}
+
+.pet-card__btn:hover {
+  background: #efe6db;
+}
+
+.pet-card__btn:active {
+  transform: translateY(1px);
+}
+
+.pet-card__btn:focus-visible {
+  outline: 3px solid rgba(111, 78, 55, 0.25);
+  outline-offset: 2px;
+}
+
+/* Load more */
+.pets__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.pets__more-btn {
+  border: 0;
+  background: #8a6b52;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    transform 0.08s ease,
+    opacity 0.15s ease;
+}
+
+.pets__more-btn:hover {
+  opacity: 0.92;
+}
+.pets__more-btn:active {
+  transform: translateY(1px);
+}
+.pets__more-btn:focus-visible {
+  outline: 3px solid rgba(111, 78, 55, 0.25);
+  outline-offset: 2px;
+}
+.pets__more-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ===== Modal ===== */
+.pets-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.pets-modal.is-open {
+  display: block;
+}
+
+.pets-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.pets-modal__dialog {
+  position: relative;
+  width: min(860px, calc(100% - 28px));
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.24);
+}
+
+.pets-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.pets-modal__close:hover {
+  background: #f4f4f4;
+}
+
+.pets-modal__content {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  padding: 18px;
+}
+
+@media (max-width: 760px) {
+  .pets-modal__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #f0f0f0;
+}
+
+.modal-title {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.modal-sub {
+  margin: 0 0 10px;
+  color: #6a665f;
+  font-size: 13px;
+}
+
+.modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #3b342c;
+}
+
+.modal-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #2d2a26;
+}
