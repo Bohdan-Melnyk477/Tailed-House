@@ -79,7 +79,10 @@ function normalizeAnimal(a) {
     species: String(a.species ?? ""),
     age: String(a.age ?? ""),
     sex: String(a.gender ?? ""),
-    description: String(a.shortDescription ?? ""),
+    shortDescription: String(a.shortDescription ?? ""),
+    description: String(a.description ?? ""),
+    healthStatus: String(a.healthStatus ?? ""),
+    behavior: String(a.behavior ?? ""),
     categories: Array.isArray(a.categories) ? a.categories.map((c) => c?.name ?? "").filter(Boolean) : [],
     raw: a,
   };
@@ -152,7 +155,7 @@ function cardHTML(p) {
       ${p.sex ? `<span>${escapeHtml(p.sex)}</span>` : ""}
     </div>
 
-    <p class="pet-card__desc">${escapeHtml(p.description)}</p>
+    <p class="pet-card__desc">${escapeHtml(p.shortDescription)}</p>
 
     <button class="pet-card__btn" type="button" data-more>Дізнатись більше</button>
   </div>
@@ -170,13 +173,21 @@ function openModal(p) {
   els.modalContent.innerHTML = `
     <img class="modal-img" src="${escapeHtml(p.img)}" alt="${escapeHtml(p.name)}" />
     <div>
+      <p class="modal-sub">${escapeHtml(p.species)}</p>
       <h3 class="modal-title" id="petModalTitle">${escapeHtml(p.name)}</h3>
-      <p class="modal-sub">${escapeHtml([p.species, ...p.categories].filter(Boolean).join(" · "))}</p>
       <div class="modal-meta">
-        ${p.age ? `<span><strong>Вік:</strong> ${escapeHtml(p.age)}</span>` : ""}
-        ${p.sex ? `<span><strong>Стать:</strong> ${escapeHtml(p.sex)}</span>` : ""}
+        ${p.age ? `<span> ${escapeHtml(p.age)}</span>` : ""}
+        ${p.sex ? `<span> ${escapeHtml(p.sex)}</span>` : ""}
       </div>
-      <p class="modal-desc">${escapeHtml(p.raw?.description ?? p.description ?? "")}</p>
+      <div class="modal-desc">
+        <h4 class="modal-desc-title">Опис:</h4>
+        <p class="modal-desc-text">${escapeHtml(p.description)}</p>
+        <h4 class="modal-desc-title">Здоровʼя:</h4>
+        <p class="modal-desc-text">${escapeHtml(p.healthStatus)}</p>
+        <h4 class="modal-desc-title">Поведінка:</h4>
+        <p class="modal-desc-text">${escapeHtml(p.behavior)}</p>
+      </div>
+      <button class="modal-btn" type="button">Взяти додому</button>
     </div>
   `;
 
@@ -198,6 +209,8 @@ async function fetchAnimalsPage(page) {
   url.searchParams.set("limit", String(state.limit));
 
   const data = await fetchJSON(url.toString());
+
+  console.log("API response:", data)
 
   const animals = (data.animals ?? []).map(normalizeAnimal);
 
