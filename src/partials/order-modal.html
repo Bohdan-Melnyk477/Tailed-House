@@ -1,0 +1,35 @@
+<div class="order-modal is-open" id="orderModal" aria-hidden="true">
+
+  <div class="order-modal__backdrop" data-modal-close></div>
+
+
+  <div class="order-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle" tabindex="-1">
+    <button class="order-modal__close" type="button" aria-label="Close" data-modal-close>×</button>
+
+    <h2 class="order-modal__title" id="orderModalTitle">Залишіть заявку на знайомство</h2>
+
+    <form class="order-modal__form" id="orderForm" novalidate>
+      <label class="field">
+        <span class="field__label">Ім’я*</span>
+        <input class="field__input" type="text" name="name" placeholder="Андрій" minlength="2" required />
+        <small class="field__error" data-error-for="name"></small>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Телефон*</span>
+        <input class="field__input" type="tel" name="phone" placeholder="+380..." required inputmode="tel" autocomplete="tel" />
+        <small class="field__error" data-error-for="phone"></small>
+      </label>
+
+      <label class="field">
+        <span class="field__label">Коментар</span>
+        <textarea class="field__textarea" name="comment" rows="4" placeholder="Напишіть ваш коментар"></textarea>
+      </label>
+
+    
+      <input type="hidden" name="animalId" id="orderAnimalId" />
+
+      <button class="order-modal__submit" type="submit">Надіслати</button>
+    </form>
+  </div>
+</div>
