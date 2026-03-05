@@ -1,0 +1,119 @@
+.hero-section {
+  background-image:
+    linear-gradient(to right, rgba(62, 54, 38, 0.1), rgba(164, 143, 101, 0)),
+    url(/img/hero.img/cat-dog-mob.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  padding: 64px 0 115px;
+}
+
+@media (min-resolution: 192dpi) {
+  .hero-section {
+    background-image:
+      linear-gradient(to right, rgba(62, 54, 38, 0.1), rgba(164, 143, 101, 0)),
+      url(/img/hero.img/cat-dog-mob-2x.jpg);
+  }
+}
+
+.hero-title {
+  font-family: 'Open Sans', sans-serif;
+  max-width: 325px;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.hero-item {
+  font-family: 'IBM Plex Sans', sans-serif;
+  max-width: 335px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 32px;
+}
+.hero-btn {
+  display: inline-block;
+  border: 1px solid #88765c;
+  border-radius: 8px;
+  padding: 12px 24px;
+  width: auto;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #88765c;
+  transition: color 200ms cubic-bezier(0.5, 0, 0.2, 1);
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+  background-color: #eee9e3;
+  opacity: 0.5;
+  color: #02060a;
+  transition: opacity 200ms cubic-bezier(0.5, 0, 0.2, 1);
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-section {
+    background-image:
+      linear-gradient(to right, rgba(62, 54, 38, 0.1), rgba(164, 143, 101, 0)),
+      url(/img/hero.img/cat-dog-tab.jpg);
+    padding: 64px 0 235px;
+  }
+
+  @media (min-resolution: 192dpi) {
+    .hero-section {
+      background-image:
+        linear-gradient(
+          to right,
+          rgba(62, 54, 38, 0.1),
+          rgba(164, 143, 101, 0)
+        ),
+        url(/img/hero.img/cat-dog-tab-2x.jpg);
+    }
+  }
+
+  .hero-title {
+    max-width: 622px;
+  }
+
+  .hero-item {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero-section {
+    background-image:
+      linear-gradient(to right, rgba(62, 54, 38, 0.1), rgba(164, 143, 101, 0)),
+      url(/img/hero.img/cat-dog-desk.jpg);
+    padding: 128px 0 413px;
+  }
+
+  @media (min-resolution: 192dpi) {
+    .hero-section {
+      background-image:
+        linear-gradient(
+          to right,
+          rgba(62, 54, 38, 0.1),
+          rgba(164, 143, 101, 0)
+        ),
+        url(/img/hero.img/cat-dog-desk-2x.jpg);
+    }
+  }
+
+  .hero-title {
+    font-size: 56px;
+  }
+
+  .hero-item {
+    font-size: 18px;
+  }
+
+  .hero-btn {
+    font-size: 16px;
+  }
+}
