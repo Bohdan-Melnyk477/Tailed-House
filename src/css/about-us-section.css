@@ -35,7 +35,7 @@
   height: 100%;
 }
 
-.swiper-slide img {
+.slide-content img {
   width: 100%;
   height: 402px;
   display: block;
@@ -138,7 +138,7 @@
   .about-us-gallery {
     position: unset !important;
   }
-  .swiper-slide img {
+  .slide-content img {
     height: 404px;
   }
   .swiper-button-next,
@@ -177,7 +177,7 @@
   .section-tittle {
     font-size: 48px;
   }
-  .swiper-slide img {
+  .slide-content img {
     height: 753px;
   }
 
