@@ -67,7 +67,6 @@
 
 /* Гумова верстка від 320: контейнер тягнеться на 100% з падінгами */
 .container {
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--container-pad-mobile);
@@ -75,7 +74,7 @@
 }
 
 /* З 375: фіксуємо “mobile canvas” (адаптив від 375) */
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 320px) {
   .container {
     max-width: var(--container-max-mobile);
   }

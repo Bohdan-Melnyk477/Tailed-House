@@ -63,14 +63,14 @@
   text-align: center;
   font-size: 34px;
   line-height: 1.2;
-  margin: 0 0 10px;
+  margin: 0 0 16px;
   font-weight: 700;
   letter-spacing: -1%;
 }
 
 .pets__subtitle {
   text-align: center;
-  margin: 0 auto 40px;
+  margin: 0 auto 32px;
   color: #6a665f;
   font-size: 14px;
   letter-spacing: 0%;
