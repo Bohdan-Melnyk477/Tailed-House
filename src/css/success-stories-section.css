@@ -1,16 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .stories-section {
-  padding: 64px 20px;
+  padding-top: 64px;
   background-color: var(--color-scheme-1-background);
-  min-width: 320px;
   margin: 0 auto;
 }
 .stories-title-wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   flex-direction: column;
   gap: 24px;
-  max-width: 335px;
   margin: 0 auto 40px;
 }
 .stories-title {
@@ -30,6 +33,7 @@
   color: var(--color-scheme-1-text);
   font-family: var(--font-family);
 }
+
 .stars {
   margin-bottom: 32px;
   display: flex;
@@ -52,12 +56,15 @@
   justify-self: end;
 }
 .feedback-card {
-  min-width: 320px;
-  height: auto;
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media screen and (min-width: 768px) {
+  .feedback-card {
+    max-width: 336px;
+  }
 }
 .swiper-controls {
   display: flex;
@@ -92,17 +99,7 @@
     inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
   background: #eee9e3;
 }
-.swiper-prev-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 8px;
-  border: 1px solid var(--color-mariner-light);
-  border-radius: 8px;
-  width: 48px;
-  height: 48px;
-}
+.swiper-prev-button,
 .swiper-next-button {
   display: flex;
   align-items: center;
@@ -114,33 +111,17 @@
   width: 48px;
   height: 48px;
 }
+
 .swiper-prev-button-svg,
 .swiper-next-button-svg {
   width: 24px;
   height: 24px;
   display: block;
 }
-@media screen and (min-width: 768px) {
-  .stories-section {
-    padding: 64px 32px;
-    max-width: 768px;
-  }
-  .stories-title {
-    font-weight: 700;
-    max-width: none;
-  }
-  .stories-title-wrapper {
-    max-width: 704px;
-  }
-  .feedback-card {
-    min-width: none;
-    max-width: 336px;
-  }
-}
+
 @media screen and (min-width: 1440px) {
   .stories-section {
-    padding: 80px 64px;
-    max-width: 1440px;
+    padding-top: 80px;
   }
   .stories-title {
     font-size: 48px;
@@ -151,10 +132,10 @@
   .stories-subtitle {
     font-size: 18px;
   }
-  .stories-title-wrapper {
-    max-width: 768px;
-  }
   .feedback-card {
     max-width: 640px;
+  }
+  .card-description {
+    min-height: 0px;
   }
 }
