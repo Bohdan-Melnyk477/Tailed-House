@@ -80,9 +80,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto 26px;
+  margin: 0 auto 32px;
 }
-
+@media (min-width: 1440px) {
+  .pets__filters {
+    margin: 0 auto 40px;
+  }
+}
 .pets__filter-btn {
   background: transparent;
   color: #3b342c;
@@ -322,15 +326,13 @@
   position: absolute;
   top: 10px;
   right: 12px;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
   background: #fff;
   cursor: pointer;
   font-size: 22px;
   line-height: 1;
   z-index: 2;
+  border: none;
 }
 
 .pets-modal__close:hover {
@@ -487,6 +489,10 @@
   font-size: 14px;
   line-height: 150%;
   color: #ffffff;
+}
+.modal-btn:hover {
+  background-color: #eee9e3;
+  color: #88765c;
 }
 
 @media (min-width: 760px) {
