@@ -12,7 +12,7 @@
     "glob": "^11.0.0",
     "postcss": "^8.4.41",
     "postcss-sort-media-queries": "^5.2.0",
-    "vite": "^5.4.6"
+    "vite": "^7.3.1"
   },
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
@@ -20,7 +20,11 @@
     "accordion-js": "^3.4.1",
     "axios": "^1.13.6",
     "node": "^25.8.0",
+<<<<<<< HEAD
     "sweetalert2": "^11.26.21",
+=======
+    "raty-js": "^4.3.0",
+>>>>>>> 57464269251cdedd6393fb8122d3f3f1567c7e8f
     "swiper": "^12.1.2",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"

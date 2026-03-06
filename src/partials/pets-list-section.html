@@ -1,5 +1,5 @@
 <section class="pets" id="pets">
-  <div class="pets__container">
+  <div class="container">
     <h2 class="pets__title">Наші хвостики</h2>
     <p class="pets__subtitle">Вони дуже чекають на знайомство з вами</p>
 
@@ -8,7 +8,10 @@
       id="categoryFilters"
       aria-label="Фільтри категорій"
     ></div>
-
+    <div class="pets__content">
+  <div class="pets__loader" id="petsLoader" aria-hidden="true">
+    <div class="pets__spinner"></div>
+  </div>
     <ul class="pets__list" id="petsList" aria-label="Список тваринок"></ul>
 
     <div class="pets__footer">
@@ -34,7 +37,9 @@
         aria-label="Закрити"
         data-modal-close
       >
-        ×
+        <svg class="swiper-next-button-svg">
+            <use href="/svg/close.svg"></use>
+          </svg>
       </button>
 
       <div class="pets-modal__content" id="petModalContent"></div>
