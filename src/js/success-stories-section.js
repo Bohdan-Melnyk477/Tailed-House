@@ -42,9 +42,9 @@ function createMarkup(feedbacks) {
       readOnly: true,
       score: score,
       halfShow: true,
-      starOff: '/svg/star-outline.svg',
-      starOn: '/svg/star-filled.svg',
-      starHalf: '/svg/star-half.svg',
+      starOff: './svg/star-outline.svg',
+      starOn: './svg/star-filled.svg',
+      starHalf: './svg/star-half.svg',
     });
     raty.init();
     } catch (error) {
