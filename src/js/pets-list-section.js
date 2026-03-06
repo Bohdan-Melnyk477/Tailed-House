@@ -1,3 +1,5 @@
+import { openModal, closeModal } from './animal-details-modal.js';
+
 // ===================== API =====================
 const API_ORIGIN = "https://paw-hut.b.goit.study";
 
@@ -213,45 +215,6 @@ function renderPets(pets, { append = false } = {}) {
   }
 }
 
-// ===================== MODAL =====================
-function openModal(p) {
-  els.modalContent.innerHTML = `
-    <img class="modal-img" src="${escapeHtml(p.img)}" alt="${escapeHtml(p.name)}" />
-
-    <div class="modal-header">
-      <p class="modal-sub">${escapeHtml(p.species)}</p>
-      <h3 class="modal-title" id="petModalTitle">${escapeHtml(p.name)}</h3>
-      <div class="modal-meta">
-        ${p.age ? `<span>${escapeHtml(p.age)}</span>` : ""}
-        ${p.sex ? `<span>${escapeHtml(p.sex)}</span>` : ""}
-      </div>
-    </div>
-
-    <div class="modal-desc">
-      <h4 class="modal-desc-title">Опис:</h4>
-      <p class="modal-desc-text">${escapeHtml(p.description)}</p>
-
-      <h4 class="modal-desc-title">Здоровʼя:</h4>
-      <p class="modal-desc-text">${escapeHtml(p.healthStatus)}</p>
-
-      <h4 class="modal-desc-title">Поведінка:</h4>
-      <p class="modal-desc-text">${escapeHtml(p.behavior)}</p>
-    </div>
-
-    <button class="modal-btn" type="button">Взяти додому</button>
-  `;
-
-  els.modal.classList.add("is-open");
-  els.modal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal() {
-  els.modal.classList.remove("is-open");
-  els.modal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-}
-
 // ===================== DATA LOAD =====================
 async function fetchAnimalsPage(page) {
   const url = new URL(API.animals);
@@ -317,9 +280,7 @@ async function loadPortion({ reset = false, append = false } = {}) {
     }
 
     renderPets(collected.slice(0, state.limit), { append });
-
     setPetsLoadingState(true);
-
     setLoadMoreVisible(state.hasMoreApi);
   } catch (err) {
     console.error(err);
@@ -383,18 +344,20 @@ els.list.addEventListener("click", e => {
   if (!id) return;
 
   const pet = state.cache.get(id);
-  if (pet) openModal(pet);
+  if (pet) {
+    openModal(pet, els.modal, els.modalContent);
+  }
 });
 
 els.modal.addEventListener("click", e => {
   if (e.target.closest("[data-modal-close]")) {
-    closeModal();
+    closeModal(els.modal);
   }
 });
 
 window.addEventListener("keydown", e => {
   if (e.key === "Escape" && els.modal.classList.contains("is-open")) {
-    closeModal();
+    closeModal(els.modal);
   }
 });
 
