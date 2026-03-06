@@ -21,7 +21,6 @@
 .order-modal__dialog {
   position: relative;
   margin: 0;
-
   width: 100%;
   max-width: 100%;
   max-height: calc(100vh - 32px); 
