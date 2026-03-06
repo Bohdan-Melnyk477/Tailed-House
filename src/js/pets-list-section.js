@@ -172,23 +172,23 @@ function renderPets(pets, { append = false } = {}) {
 function openModal(p) {
   els.modalContent.innerHTML = `
     <img class="modal-img" src="${escapeHtml(p.img)}" alt="${escapeHtml(p.name)}" />
-    <div>
+    <div class="modal-header">
       <p class="modal-sub">${escapeHtml(p.species)}</p>
       <h3 class="modal-title" id="petModalTitle">${escapeHtml(p.name)}</h3>
       <div class="modal-meta">
         ${p.age ? `<span> ${escapeHtml(p.age)}</span>` : ""}
         ${p.sex ? `<span> ${escapeHtml(p.sex)}</span>` : ""}
       </div>
-      <div class="modal-desc">
+    </div>
+    <div class="modal-desc">
         <h4 class="modal-desc-title">Опис:</h4>
         <p class="modal-desc-text">${escapeHtml(p.description)}</p>
         <h4 class="modal-desc-title">Здоровʼя:</h4>
         <p class="modal-desc-text">${escapeHtml(p.healthStatus)}</p>
         <h4 class="modal-desc-title">Поведінка:</h4>
         <p class="modal-desc-text">${escapeHtml(p.behavior)}</p>
-      </div>
-      <button class="modal-btn" type="button">Взяти додому</button>
     </div>
+    <button class="modal-btn" type="button">Взяти додому</button>   
   `;
 
   els.modal.classList.add("is-open");
@@ -209,8 +209,6 @@ async function fetchAnimalsPage(page) {
   url.searchParams.set("limit", String(state.limit));
 
   const data = await fetchJSON(url.toString());
-
-  console.log("API response:", data)
 
   const animals = (data.animals ?? []).map(normalizeAnimal);
 
