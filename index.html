@@ -287,7 +287,30 @@
     </main>
 
     
-    
+    <!-- MODAL -->
+  <div class="pets-modal" id="petModal" aria-hidden="true">
+    <div class="pets-modal__backdrop" data-modal-close></div>
+
+    <div
+      class="pets-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="petModalTitle"
+    >
+      <button
+        class="pets-modal__close"
+        type="button"
+        aria-label="Закрити"
+        data-modal-close
+      >
+        <svg class="swiper-next-button-svg">
+            <use href="/Tailed-House/svg/close.svg"></use>
+          </svg>
+      </button>
+
+      <div class="pets-modal__content" id="petModalContent"></div>
+    </div>
+  </div>
     <div class="order-modal" id="orderModal" aria-hidden="true">
 
   <div class="order-modal__backdrop" data-modal-close></div>
