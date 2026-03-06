@@ -20,11 +20,8 @@
     "accordion-js": "^3.4.1",
     "axios": "^1.13.6",
     "node": "^25.8.0",
-<<<<<<< HEAD
-    "sweetalert2": "^11.26.21",
-=======
     "raty-js": "^4.3.0",
->>>>>>> 57464269251cdedd6393fb8122d3f3f1567c7e8f
+    "sweetalert2": "^11.26.21",
     "swiper": "^12.1.2",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
