@@ -57,7 +57,6 @@
   color: var(--color-scheme-1-text);
 }
 
-
 .faq__btn {
   flex: 0 0 24px;
   width: 24px;
@@ -65,7 +64,6 @@
   position: relative;
   display: inline-flex;
 }
-
 
 .faq__icon {
   width: 24px;
