@@ -10,6 +10,10 @@
   const BODY_LOCK_CLASS = 'no-scroll';
 
   const closeMenu = () => {
+    if (mobileMenu.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
+
     mobileMenu.classList.remove(OPEN_CLASS);
     document.body.classList.remove(BODY_LOCK_CLASS);
     burgerButton.setAttribute('aria-expanded', 'false');
@@ -24,6 +28,8 @@
       document.body.classList.add(BODY_LOCK_CLASS);
       burgerButton.setAttribute('aria-expanded', 'true');
       mobileMenu.setAttribute('aria-hidden', 'false');
+
+      closeButton?.focus();
     } else {
       closeMenu();
     }
@@ -32,7 +38,9 @@
   burgerButton.addEventListener('click', toggleMenu);
 
   mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
+    link.addEventListener('click', () => {
+      setTimeout(closeMenu, 50);
+    });
   });
 
   if (closeButton) {

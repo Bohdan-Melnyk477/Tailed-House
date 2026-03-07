@@ -5,7 +5,7 @@
 }
 
 .stories-section {
-  padding: 64px 0px 64px 0px; 
+  padding: 64px 0px 64px 0px;
   background-color: var(--color-scheme-1-background);
   margin: 0 auto;
 }
@@ -121,7 +121,7 @@
 
 @media screen and (min-width: 1440px) {
   .stories-section {
-    padding: 80px 0px 80px 0px ;
+    padding: 80px 0px 80px 0px;
   }
   .stories-title {
     font-size: 48px;
