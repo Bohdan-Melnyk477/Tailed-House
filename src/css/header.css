@@ -11,6 +11,11 @@
   justify-content: space-between;
   gap: 16px;
   min-height: 64px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-left: var(--container-pad-mobile);
+  padding-right: var(--container-pad-mobile);
 }
 
 .logo {
@@ -183,6 +188,8 @@ body.no-scroll {
   .site-header__container {
     min-height: 80px;
     gap: 32px;
+    padding-left: var(--container-pad-tablet);
+    padding-right: var(--container-pad-tablet);
   }
 
   /* На таблеті фон модалки такий самий, як на телефоні (без окремої «картки») */
@@ -221,6 +228,8 @@ body.no-scroll {
   .site-header__container {
     min-height: 88px;
     gap: 48px;
+    padding-left: var(--container-pad-desktop);
+    padding-right: var(--container-pad-desktop);
   }
 
   .menu-nav {
