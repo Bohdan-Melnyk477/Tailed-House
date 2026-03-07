@@ -96,11 +96,11 @@
     <h2 class="pets__title">Наші хвостики</h2>
     <p class="pets__subtitle">Вони дуже чекають на знайомство з вами</p>
 
- <nav
-  class="pets__filters"
-  id="categoryFilters"
-  aria-label="Фільтри категорій"
-></nav>
+    <div
+      class="pets__filters"
+      id="categoryFilters"
+      aria-label="Фільтри категорій"
+    ></div>
     <div class="pets__content">
   <div class="pets__loader" id="petsLoader" aria-hidden="true">
     <div class="pets__spinner"></div>
@@ -117,29 +117,28 @@
 </section>
 
       <section class="about-us-section" id="about">
-  <div class="container about-us-container">
+    <div class="container about-us-container">
     <h2 class="section-tittle">Чому Хатинка Лапок</h2>
-  </div>
-
-  <div class="swiper about-us-gallery">
-    <div class="swiper-wrapper"></div>
-    <div class="slider-controls">
-      <div class="slider-buttons">
-        <button type="button" class="swiper-button-prev">
-          <svg class="icon-swiper" width="16" height="16">
-            <use href="/Tailed-House/svg/arrow_back.svg"></use>
-          </svg>
-        </button>
-        <button type="button" class="swiper-button-next">
-          <svg class="icon-swiper" width="24" height="24">
-            <use href="/Tailed-House/svg/arrow_forward.svg"></use>
-          </svg>
-        </button>
-      </div>
+    <div class="about-us-slider-container">
+    <div class="swiper about-us-gallery">
+        <div class="swiper-wrapper"></div>
+        <div class="slider-controls">
+            <div class="swiper-pagination"></div>
+            <div class="slider-buttons">
+                <button type="button" class="swiper-button-prev">
+                    <svg class="icon-swiper" width="16" height="16">
+                        <use href="/Tailed-House/svg/arrow_back.svg"></use>
+                    </svg>
+                </button>
+                <button type="button" class="swiper-button-next">
+                    <svg class="icon-swiper" width="24" height="24">
+                        <use href="/Tailed-House/svg/arrow_forward.svg"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
-
       <section class="faq" id="faq">
     <div class="container">
         <h2 class="faq__title">Все, що ви хотіли знати</h2>
@@ -379,34 +378,29 @@
 </footer>
 
     <!-- MODAL -->
-<div class="pets-modal" id="petModal" aria-hidden="true">
-  <div class="pets-modal__backdrop" data-modal-close></div>
+  <div class="pets-modal" id="petModal" aria-hidden="true">
+    <div class="pets-modal__backdrop" data-modal-close></div>
 
-  <div
-    class="pets-modal__dialog"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="petModalTitle"
-  >
-    <button
-      class="pets-modal__close"
-      type="button"
-      aria-label="Закрити"
-      data-modal-close
+    <div
+      class="pets-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="petModalTitle"
     >
-      <svg class="swiper-next-button-svg">
-        <use href="/Tailed-House/svg/close.svg"></use>
-      </svg>
-    </button>
+      <button
+        class="pets-modal__close"
+        type="button"
+        aria-label="Закрити"
+        data-modal-close
+      >
+        <svg class="swiper-next-button-svg">
+            <use href="/Tailed-House/svg/close.svg"></use>
+          </svg>
+      </button>
 
-    <div class="pets-modal__content" id="petModalContent">
-      <h2 id="petModalTitle" class="visually-hidden">
-        Інформація про тваринку
-      </h2>
+      <div class="pets-modal__content" id="petModalContent"></div>
     </div>
   </div>
-</div>
-
     <div class="order-modal" id="orderModal" aria-hidden="true">
 
   <div class="order-modal__backdrop" data-modal-close></div>
