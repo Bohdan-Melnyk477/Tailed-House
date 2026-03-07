@@ -8,10 +8,72 @@
     <script type="module" crossorigin src="/Tailed-House/index.js"></script>
     <link rel="modulepreload" crossorigin href="/Tailed-House/assets/vendor-DBUYJfIL.js">
     <link rel="stylesheet" crossorigin href="/Tailed-House/assets/vendor-Bd0QjRWJ.css">
-    <link rel="stylesheet" crossorigin href="/Tailed-House/assets/index-CLHucWYv.css">
+    <link rel="stylesheet" crossorigin href="/Tailed-House/assets/index-DcZz4RWD.css">
   </head>
   <body>
-    
+    <header class="site-header">
+  <div class="container site-header__container">
+    <a class="logo" href="#welcome">
+      <img src="../public/svg/logo.svg" alt="Tailed House logo" />
+    </a>
+
+    <nav class="menu-nav" aria-label="Основна навігація">
+      <ul class="menu-list">
+        <li><a class="menu-link" href="#welcome">Знайди друга</a></li>
+        <li><a class="menu-link" href="#quality">Про нас</a></li>
+        <li><a class="menu-link" href="#gallery">Часті питання</a></li>
+        <li><a class="menu-link" href="#testimonials">Історії успіху</a></li>
+      </ul>
+    </nav>
+
+    <button class="friend-btn" type="button">Взяти друга</button>
+
+    <button
+      class="burger-buttom"
+      type="button"
+      aria-label="Відкрити меню"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <img src="../public/svg/menu.svg" alt="Перемикач мобільного меню" />
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <div class="mobile-menu__top">
+        <a class="logo mobile-menu__logo" href="#welcome">
+          <img src="../public/svg/logo.svg" alt="Tailed House logo" />
+        </a>
+        <button
+          class="mobile-menu__close"
+          type="button"
+          aria-label="Закрити меню"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="mobile-menu__body">
+        <ul class="mobile-menu__list">
+          <li><a class="mobile-menu__link" href="#welcome">Знайди друга</a></li>
+          <li><a class="mobile-menu__link" href="#quality">Про нас</a></li>
+          <li>
+            <a class="mobile-menu__link" href="#gallery">Часті питання</a>
+          </li>
+          <li>
+            <a class="mobile-menu__link" href="#testimonials">Історії успіху</a>
+          </li>
+        </ul>
+
+        <button class="friend-btn friend-btn--mobile" type="button">
+          Взяти друга
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
 
     <main>
       <!-- Loads the specified .html file -->
