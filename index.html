@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tailed-House</title>
     <script type="module" crossorigin src="/Tailed-House/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/Tailed-House/assets/vendor-ClbBKYN_.js">
-    <link rel="stylesheet" crossorigin href="/Tailed-House/assets/vendor-Bd0QjRWJ.css">
-    <link rel="stylesheet" crossorigin href="/Tailed-House/assets/index-1Sg3wd28.css">
+    <link rel="modulepreload" crossorigin href="/Tailed-House/assets/vendor-oBK46PQn.js">
+    <link rel="stylesheet" crossorigin href="/Tailed-House/assets/vendor-CWCwPj6x.css">
+    <link rel="stylesheet" crossorigin href="/Tailed-House/assets/index-DR0bWCFu.css">
   </head>
   <body>
     <header class="site-header">
@@ -73,7 +73,7 @@
         <button
           class="friend-btn friend-btn--mobile"
           type="button"
-          data-scroll-to="pets"
+          data-scroll-to="#petsTitlle"
         >
           Взяти друга
         </button>
@@ -101,7 +101,7 @@
 
       <section class="pets" id="pets">
   <div class="container">
-    <h2 class="pets__title" id="petModalTitle">Наші хвостики</h2>
+    <h2 class="pets__title" id="petsTitlle">Наші хвостики</h2>
     <p class="pets__subtitle">Вони дуже чекають на знайомство з вами</p>
 
     <nav
@@ -450,13 +450,19 @@
         Ці хвостики вже знайшли свій дім. Ваш майбутній друг теж чекає на вас
       </p>
     </div>
+
+    <div class="stories-loader" id="stories-loader" aria-hidden="true">
+      <div class="stories-spinner"></div>
+    </div>
+
     <div class="swiper feedbacks-slider">
       <div class="swiper-wrapper" id="stories-list"></div>
     </div>
+
     <div class="swiper-controls">
       <div class="swiper-pag"></div>
       <div class="swiper-buttons">
-        <button class="swiper-prev-button">
+        <button class="swiper-prev-button" type="button">
           <img
             class="swiper-prev-button-svg"
             src="./svg/arrow_back.svg"
@@ -465,7 +471,7 @@
             alt="prev"
           />
         </button>
-        <button class="swiper-next-button">
+        <button class="swiper-next-button" type="button">
           <img
             class="swiper-next-button-svg"
             src="./svg/arrow_forward.svg"
@@ -578,7 +584,7 @@
           class="field__input"
           type="tel"
           name="phone"
-          placeholder="+380..."
+          placeholder="380ХХХХХХХХ"
           required
           inputmode="tel"
           autocomplete="tel"
