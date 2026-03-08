@@ -6,13 +6,19 @@
         Ці хвостики вже знайшли свій дім. Ваш майбутній друг теж чекає на вас
       </p>
     </div>
+
+    <div class="stories-loader" id="stories-loader" aria-hidden="true">
+      <div class="stories-spinner"></div>
+    </div>
+
     <div class="swiper feedbacks-slider">
       <div class="swiper-wrapper" id="stories-list"></div>
     </div>
+
     <div class="swiper-controls">
       <div class="swiper-pag"></div>
       <div class="swiper-buttons">
-        <button class="swiper-prev-button">
+        <button class="swiper-prev-button" type="button">
           <img
             class="swiper-prev-button-svg"
             src="./svg/arrow_back.svg"
@@ -21,7 +27,7 @@
             alt="prev"
           />
         </button>
-        <button class="swiper-next-button">
+        <button class="swiper-next-button" type="button">
           <img
             class="swiper-next-button-svg"
             src="./svg/arrow_forward.svg"

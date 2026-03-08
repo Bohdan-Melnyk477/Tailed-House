@@ -77,3 +77,20 @@ scrollButtons.forEach(btn => {
     }
   });
 })();
+
+
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-scroll-to]');
+  if (!btn) return;
+
+  const targetId = btn.dataset.scrollTo;
+  const target = document.getElementById(targetId);
+
+  if (!target) return;
+
+  target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+});

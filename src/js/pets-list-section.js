@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import { openModal, closeModal } from './animal-details-modal.js';
 
 // ===================== API =====================
@@ -251,7 +253,7 @@ async function loadPortion({ reset = false, append = false } = {}) {
   }
 
   showLoader();
-  setPetsLoadingState(false);
+  setPetsLoadingState(true);
 
   try {
     if (reset) {
@@ -288,14 +290,20 @@ async function loadPortion({ reset = false, append = false } = {}) {
     }
 
     renderPets(collected.slice(0, state.limit), { append });
-    setPetsLoadingState(false);
     setLoadMoreVisible(state.hasMoreApi);
   } catch (err) {
     console.error(err);
 
     if (!append) {
-      els.list.innerHTML = `<li style="padding:16px;color:#8b0000;">Помилка завантаження даних. Дивись console.</li>`;
+      els.list.innerHTML = `<li style="padding:16px;color:#8b0000;">Щось пішло не так. Спробуйте ще раз пізніше.</li>`;
     }
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Не вдалося завантажити тваринок',
+      text: 'Спробуйте ще раз пізніше.',
+      confirmButtonText: 'OK',
+    });
 
     setLoadMoreVisible(false);
   } finally {
@@ -312,14 +320,34 @@ async function loadPortion({ reset = false, append = false } = {}) {
 
 // ===================== LOAD CATEGORIES =====================
 async function loadCategories() {
-  const data = await fetchJSON(API.categories);
+  showLoader();
 
-  const categories = Array.isArray(data)
-    ? data
-    : (data?.data ?? data?.categories ?? []);
+  try {
+    const data = await fetchJSON(API.categories);
 
-  renderCategories(categories);
-  setActiveCategoryButton('all');
+    const categories = Array.isArray(data)
+      ? data
+      : data?.data ?? data?.categories ?? [];
+
+    renderCategories(categories);
+    setActiveCategoryButton('all');
+
+  } catch (err) {
+    console.error(err);
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Не вдалося завантажити категорії',
+      text: 'Спробуйте ще раз пізніше.',
+      confirmButtonText: 'OK',
+    });
+
+    renderCategories([]);
+    setActiveCategoryButton('all');
+
+  } finally {
+    hideLoader();
+  }
 }
 
 // ===================== EVENTS =====================

@@ -7,11 +7,46 @@ function escapeHtml(str = '') {
     .replaceAll("'", '&#039;');
 }
 
+let scrollY = 0;
+
+function lockBodyScroll() {
+  scrollY = window.scrollY;
+
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.width = '100%';
+  document.body.style.overflow = 'hidden';
+}
+
+function unlockBodyScroll() {
+  const savedScrollY = Math.abs(parseInt(document.body.style.top || '0', 10));
+
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.width = '';
+  document.body.style.overflow = '';
+
+  window.scrollTo(0, savedScrollY);
+}
+
 export function openModal(p, modal, modalContent) {
   modalContent.innerHTML = `
-    <button class="pets-modal__close" type="button" data-modal-close aria-label="Закрити">✕</button>
+    <button
+      class="pets-modal__close"
+      type="button"
+      data-modal-close
+      aria-label="Закрити"
+    >
+      ✕
+    </button>
 
-    <img class="modal-img" src="${escapeHtml(p.img)}" alt="${escapeHtml(p.name)}" />
+    <img
+      class="modal-img"
+      src="${escapeHtml(p.img)}"
+      alt="${escapeHtml(p.name)}"
+    />
 
     <div class="modal-header">
       <p class="modal-sub">${escapeHtml(p.species)}</p>
@@ -33,29 +68,40 @@ export function openModal(p, modal, modalContent) {
       <p class="modal-desc-text">${escapeHtml(p.behavior)}</p>
     </div>
 
-    <button class="modal-btn" type="button" data-order="${escapeHtml(p.id)}">Взяти додому</button>
+    <button
+      class="modal-btn"
+      type="button"
+      data-order="${escapeHtml(p.id)}"
+    >
+      Взяти додому
+    </button>
   `;
 
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+  lockBodyScroll();
 
   const closeBtn = modal.querySelector('[data-modal-close]');
   closeBtn?.focus();
 
   const orderBtn = modalContent.querySelector('[data-order]');
-orderBtn?.addEventListener('click', () => {
-  closeModal(modal);
-  window.openOrderModal(orderBtn.dataset.order);
-});
+  orderBtn?.addEventListener('click', () => {
+    closeModal(modal);
+
+    if (window.openOrderModal) {
+      window.openOrderModal(orderBtn.dataset.order);
+    }
+  });
 }
 
 export function closeModal(modal) {
+  if (!modal) return;
+
   if (modal.contains(document.activeElement)) {
     document.activeElement.blur();
   }
 
   modal.classList.remove('is-open');
   modal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+  unlockBodyScroll();
 }
