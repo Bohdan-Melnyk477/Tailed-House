@@ -77,22 +77,3 @@ scrollButtons.forEach(btn => {
     }
   });
 })();
-
-
-
-const burgerMenu = document.querySelector('.mobile-menu');
-const burgerCloseBtn = document.querySelector('[data-menu-close]');
-const burgerTakeFriendBtn = document.querySelector('.friend-btn--mobile[data-scroll-to="pets"]');
-
-function closeBurgerMenu() {
-  burgerMenu?.classList.remove('is-open');
-  document.body.style.overflow = '';
-}
-
-burgerTakeFriendBtn?.addEventListener('click', () => {
-  closeBurgerMenu();
-
-  setTimeout(() => {
-    scrollToSection('pets');
-  }, 250);
-});
