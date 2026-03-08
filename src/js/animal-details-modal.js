@@ -44,9 +44,10 @@ export function openModal(p, modal, modalContent) {
   closeBtn?.focus();
 
   const orderBtn = modalContent.querySelector('[data-order]');
-  orderBtn?.addEventListener('click', () => {
-    window.openOrderModal(orderBtn.dataset.order);
-  });
+orderBtn?.addEventListener('click', () => {
+  closeModal(modal);
+  window.openOrderModal(orderBtn.dataset.order);
+});
 }
 
 export function closeModal(modal) {

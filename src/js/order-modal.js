@@ -24,6 +24,8 @@ function openOrderModal(animalId) {
 
   lastFocusedEl = document.activeElement;
 
+  
+
   refs.animalId.value = animalId;
   clearErrors();
 
@@ -147,7 +149,7 @@ refs.form.addEventListener('submit', async e => {
     Swal.fire({
       icon: 'error',
       title: 'Помилка',
-      text: err?.message || 'Сталася помилка. Спробуйте ще раз.',
+      text: err?.message || 'Щось пішло не так. Спробуйте ще раз трохи пізніше.',
     });
   }
 });
