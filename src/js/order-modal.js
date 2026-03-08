@@ -1,6 +1,8 @@
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+const BASE_URL = 'https://paw-hut.b.goit.study/api';
+
 const refs = {
   modal: document.getElementById('orderModal'),
   dialog: document.querySelector('#orderModal .order-modal__dialog'),
@@ -11,9 +13,18 @@ const refs = {
 let lastFocusedEl = null;
 
 function openOrderModal(animalId) {
+  if (!animalId) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Помилка',
+      text: 'Не знайдено id тваринки для заявки.',
+    });
+    return;
+  }
+
   lastFocusedEl = document.activeElement;
 
-  refs.animalId.value = animalId || '';
+  refs.animalId.value = animalId;
   clearErrors();
 
   refs.modal.classList.add('is-open');
@@ -75,7 +86,6 @@ function validate(formData) {
 
   if (!formData.get('animalId')) {
     ok = false;
-
     Swal.fire({
       icon: 'error',
       title: 'Помилка',
@@ -87,7 +97,9 @@ function validate(formData) {
 }
 
 async function postOrder(payload) {
-  const res = await fetch('/orders', {
+  console.log('ORDER PAYLOAD:', payload);
+
+  const res = await fetch(`${BASE_URL}/orders`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -97,12 +109,13 @@ async function postOrder(payload) {
     let msg = 'Помилка запиту.';
     try {
       const data = await res.json();
+      console.log('ORDER ERROR RESPONSE:', data);
       msg = data?.message || msg;
     } catch (_) {}
     throw new Error(msg);
   }
 
-  return true;
+  return await res.json();
 }
 
 refs.form.addEventListener('submit', async e => {
@@ -137,13 +150,6 @@ refs.form.addEventListener('submit', async e => {
       text: err?.message || 'Сталася помилка. Спробуйте ще раз.',
     });
   }
-});
-
-//button
-document.querySelectorAll('[data-open-friend-modal]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    openOrderModal(null);
-  });
 });
 
 window.openOrderModal = openOrderModal;

@@ -43,6 +43,24 @@
     });
   });
 
+  const scrollButtons = mobileMenu.querySelectorAll('[data-scroll-to]');
+
+scrollButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.scrollTo;
+    const target = document.getElementById(targetId);
+
+    closeMenu();
+
+    setTimeout(() => {
+      target?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 100);
+  });
+});
+
   if (closeButton) {
     closeButton.addEventListener('click', closeMenu);
   }
