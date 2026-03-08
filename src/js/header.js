@@ -80,17 +80,19 @@ scrollButtons.forEach(btn => {
 
 
 
-document.addEventListener('click', e => {
-  const btn = e.target.closest('[data-scroll-to]');
-  if (!btn) return;
+const burgerMenu = document.querySelector('.mobile-menu');
+const burgerCloseBtn = document.querySelector('[data-menu-close]');
+const burgerTakeFriendBtn = document.querySelector('.friend-btn--mobile[data-scroll-to="pets"]');
 
-  const targetId = btn.dataset.scrollTo;
-  const target = document.getElementById(targetId);
+function closeBurgerMenu() {
+  burgerMenu?.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
 
-  if (!target) return;
+burgerTakeFriendBtn?.addEventListener('click', () => {
+  closeBurgerMenu();
 
-  target.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-  });
+  setTimeout(() => {
+    scrollToSection('pets');
+  }, 250);
 });
