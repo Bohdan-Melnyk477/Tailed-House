@@ -179,9 +179,14 @@ if (refs.form) {
     const payload = {
       name: (formData.get('name') || '').trim(),
       phone: (formData.get('phone') || '').replace(/\D/g, '').trim(),
-      comment: (formData.get('comment') || '').trim(),
       animalId: formData.get('animalId'),
     };
+
+    const comment = formData.get('comment')?.trim();
+
+    if (comment) {
+    payload.comment = comment;
+}
 
     try {
       setSubmitLoading(true);
