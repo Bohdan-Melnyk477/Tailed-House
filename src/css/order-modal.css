@@ -145,6 +145,35 @@
   background: var(--color-mariner-lighter);
 }
 
+.order-modal__submit.button-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.order-modal__submit.button-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .field__error {
   font-size: 12px;
   color: var(--color-red);
