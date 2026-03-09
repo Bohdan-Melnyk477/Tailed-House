@@ -22,7 +22,10 @@ function showStoriesLoader() {
 function hideStoriesLoader() {
   storiesLoader?.classList.remove('is-visible');
   storiesLoader?.setAttribute('aria-hidden', 'true');
-  swiperControls?.classList.remove('is-hidden');
+}
+
+function hideSwiperControls() {
+  swiperControls?.classList.add('is-hidden');
 }
 
 function getStars(rate) {
@@ -114,6 +117,7 @@ async function getFeedback() {
 
     createMarkup(feedbacks);
     initSwiper();
+    swiperControls?.classList.remove('is-hidden');
   } catch (error) {
     console.error('Помилка при завантаженні відгуків:', error);
 
@@ -125,7 +129,7 @@ async function getFeedback() {
     });
 
     renderFallback();
-    initSwiper();
+    hideSwiperControls();
   } finally {
     hideStoriesLoader();
   }

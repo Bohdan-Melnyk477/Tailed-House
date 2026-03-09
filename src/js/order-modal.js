@@ -55,7 +55,14 @@ function setSubmitLoading(isLoading) {
   if (!refs.submitBtn) return;
 
   refs.submitBtn.disabled = isLoading;
-  refs.submitBtn.textContent = isLoading ? 'Відправляємо...' : 'Відправити';
+
+  if (isLoading) {
+    refs.submitBtn.classList.add('button-loading');
+    refs.submitBtn.textContent = 'Відправляємо...';
+  } else {
+    refs.submitBtn.classList.remove('button-loading');
+    refs.submitBtn.textContent = 'Відправити';
+  }
 }
 
 function validate(formData) {
